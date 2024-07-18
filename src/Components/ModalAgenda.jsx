@@ -1,12 +1,7 @@
 import React, { useState } from 'react';
 
 const ModalAgenda = ({ isOpen, onClose }) => {
-  const agenda = [
-    { clase: 'Matemáticas', profesor: 'Juan Pérez', horario: '10:00 - 11:00' },
-    { clase: 'Ciencias', profesor: 'María López', horario: '11:00 - 12:00' },
-    { clase: 'Historia', profesor: 'Carlos Ruiz', horario: '12:00 - 13:00' },
-  ];
-
+  
   return (
     <div className={`fixed inset-0 z-50 overflow-auto bg-gray-800 bg-opacity-50 ${isOpen ? 'flex' : 'hidden'}`}>
       <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
@@ -19,11 +14,11 @@ const ModalAgenda = ({ isOpen, onClose }) => {
           <h2 className="text-center text-2xl font-bold text-gray-900">Agenda de Clases</h2>
         </div>
         <div className="grid grid-cols-1 gap-4">
-          {agenda.map((item, index) => (
-            <div key={index} className="p-4 border rounded-lg shadow">
-              <h3 className="text-lg font-bold text-gray-800">{item.clase}</h3>
-              <p className="text-gray-600">Profesor: {item.profesor}</p>
-              <p className="text-gray-600">Horario: {item.horario}</p>
+          
+            <div  className="p-4 border rounded-lg shadow">
+              <h3 className="text-lg font-bold text-gray-800">nombre de clase</h3>
+              <p className="text-gray-600">Profesor</p>
+              <p className="text-gray-600">Horario</p>
               <div className="mt-4 flex justify-end space-x-2">
                 <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
                   Editar
@@ -33,7 +28,7 @@ const ModalAgenda = ({ isOpen, onClose }) => {
                 </button>
               </div>
             </div>
-          ))}
+
         </div>
       </div>
     </div>

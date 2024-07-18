@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const ModalForm = ({ isOpen, onClose }) => {
+// ModalForm para enviar la información
+const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
   const [formData, setFormData] = useState({
     nombre: '',
     apellido: '',
     email: '',
     telefono: ''
   });
+  const [selectedHorario, setSelectedHorario] = useState('');
+
+  useEffect(() => {
+    if (selectedClass) {
+      setSelectedHorario(selectedClass.horarios.split(' / ')[0]); // Selecciona el primer horario por defecto
+    }
+  }, [selectedClass]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,12 +24,18 @@ const ModalForm = ({ isOpen, onClose }) => {
     }));
   };
 
+  const handleHorarioChange = (e) => {
+    setSelectedHorario(e.target.value);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Aquí puedes agregar la lógica para manejar el envío del formulario
-    console.log('Formulario enviado:', formData);
+    const formDataWithHorario = { ...formData, horario: selectedHorario };
+    onFormSubmit(formDataWithHorario); // Pasa la información al componente padre
     onClose(); // Cierra el modal después de enviar el formulario
   };
+
+  if (!selectedClass) return null;
 
   return (
     <div className={`fixed inset-0 z-50 overflow-auto bg-gray-800 bg-opacity-50 ${isOpen ? 'flex' : 'hidden'}`}>
@@ -32,12 +46,24 @@ const ModalForm = ({ isOpen, onClose }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <h2 className="text-center text-2xl font-bold text-gray-900">Completa tus datos</h2>
+          <h2 className="text-center text-2xl font-bold text-gray-900">Detalles de la clase</h2>
         </div>
         <div className="relative mb-4">
-          <p className="text-center text-2xl font-bold text-gray-900">boxeo</p>
-          <p className="text-center text-2xl font-bold text-gray-900">Profesor:tanto</p>
-          <select name="" id="">fsa</select>
+          <p className="text-center text-lg font-bold text-gray-900">Nombre de la clase: {selectedClass.nombreClase}</p>
+          <p className="text-center text-lg font-bold text-gray-900">Profesor: {selectedClass.nombreProfesor}</p>
+          <label htmlFor="horario" className="block text-gray-700 font-bold mb-2">Selecciona el horario</label>
+          <select
+            id="horario"
+            value={selectedHorario}
+            onChange={handleHorarioChange}
+            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+          >
+            {selectedClass.horarios.split(' / ').map((horario, index) => (
+              <option key={index} value={horario}>
+                {horario}
+              </option>
+            ))}
+          </select>
         </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
