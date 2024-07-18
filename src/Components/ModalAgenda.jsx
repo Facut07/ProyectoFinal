@@ -1,27 +1,37 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const ModalAgenda = ({ isOpen, onClose, classes }) => {
-  if (!isOpen) return null;
+const ModalAgenda = ({ isOpen, onClose }) => {
+  const agenda = [
+    { clase: 'Matemáticas', profesor: 'Juan Pérez', horario: '10:00 - 11:00' },
+    { clase: 'Ciencias', profesor: 'María López', horario: '11:00 - 12:00' },
+    { clase: 'Historia', profesor: 'Carlos Ruiz', horario: '12:00 - 13:00' },
+  ];
 
   return (
-    <div className="fixed inset-0 z-50 overflow-auto bg-black bg-opacity-50 flex">
+    <div className={`fixed inset-0 z-50 overflow-auto bg-gray-800 bg-opacity-50 ${isOpen ? 'flex' : 'hidden'}`}>
       <div className="relative p-8 bg-white w-full max-w-md m-auto flex-col flex rounded-lg">
-        <div className="flex justify-between items-center pb-3">
-          <h2 className="text-2xl font-bold">Agenda</h2>
-          <button onClick={onClose} className="text-gray-500 hover:text-gray-700 focus:outline-none">
-            <svg className="h-6 w-6 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-              <path
-                fillRule="evenodd"
-                d="M15.707 4.293a1 1 0 0 1 1.414 1.414L11.414 12l5.707 5.293a1 1 0 1 1-1.414 1.414L10 13.414l-5.293 5.293a1 1 0 0 1-1.414-1.414L8.586 12 3.293 6.707a1 1 0 0 1 1.414-1.414L10 10.586l5.293-5.293z"
-              />
+        <div className="relative mb-4">
+          <button onClick={onClose} className="absolute top-0 right-0 p-2 focus:outline-none">
+            <svg className="h-6 w-6 text-gray-700" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
+          <h2 className="text-center text-2xl font-bold text-gray-900">Agenda de Clases</h2>
         </div>
-        <div className="mt-4">
-          {classes.map((classInfo, index) => (
-            <div key={index} className="border-b border-gray-200 py-2">
-              <h3 className="text-lg font-semibold">{classInfo.name}</h3>
-              <p className="text-gray-600">{classInfo.date} - {classInfo.time}</p>
+        <div className="grid grid-cols-1 gap-4">
+          {agenda.map((item, index) => (
+            <div key={index} className="p-4 border rounded-lg shadow">
+              <h3 className="text-lg font-bold text-gray-800">{item.clase}</h3>
+              <p className="text-gray-600">Profesor: {item.profesor}</p>
+              <p className="text-gray-600">Horario: {item.horario}</p>
+              <div className="mt-4 flex justify-end space-x-2">
+                <button className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600">
+                  Editar
+                </button>
+                <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
+                  Eliminar
+                </button>
+              </div>
             </div>
           ))}
         </div>
@@ -30,4 +40,17 @@ const ModalAgenda = ({ isOpen, onClose, classes }) => {
   );
 };
 
-export default ModalAgenda;
+const App = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  return (
+    <div className="App">
+      <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 text-white px-4 py-2 rounded">
+        Ver Agenda
+      </button>
+      <ModalAgenda isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </div>
+  );
+};
+
+export default App;

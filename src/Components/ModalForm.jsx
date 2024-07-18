@@ -34,6 +34,11 @@ const ModalForm = ({ isOpen, onClose }) => {
           </button>
           <h2 className="text-center text-2xl font-bold text-gray-900">Completa tus datos</h2>
         </div>
+        <div className="relative mb-4">
+          <p className="text-center text-2xl font-bold text-gray-900">boxeo</p>
+          <p className="text-center text-2xl font-bold text-gray-900">Profesor:tanto</p>
+          <select name="" id="">fsa</select>
+        </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="nombre" className="block text-gray-700 font-bold mb-2">Nombre</label>

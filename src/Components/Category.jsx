@@ -25,9 +25,10 @@ const Category = () => {
               />
             </a>
             <div className="mt-4">
-              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-              <h2 className="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-              <p className="mt-1">$16.00</p>
+            <h2 className="text-gray-900 title-font text-lg font-medium">Boxeo</h2>
+              <h3 className="text-gray-500 text-xs tracking-widest title-font mb-1">clase potente de boxeo</h3>
+              <p className="mt-1">Profesor: cualquiera</p>
+              <p className="mt-1">19:00</p>
             </div>
             <div className="flex justify-center mt-4">
               <button
