@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// ModalForm para enviar la información
 const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
   const [formData, setFormData] = useState({
     nombre: '',
@@ -12,7 +11,7 @@ const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
 
   useEffect(() => {
     if (selectedClass) {
-      setSelectedHorario(selectedClass.horarios.split(' / ')[0]); // Selecciona el primer horario por defecto
+      setSelectedHorario(selectedClass.horarios.split(' / ')[0]);
     }
   }, [selectedClass]);
 
@@ -31,9 +30,30 @@ const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formDataWithHorario = { ...formData, horario: selectedHorario };
-    onFormSubmit(formDataWithHorario); // Pasa la información al componente padre
-    onClose(); // Cierra el modal después de enviar el formulario
+  
+    // Obtener datos actuales del localStorage
+    const existingData = JSON.parse(localStorage.getItem('formData')) || [];
+  
+    // Agregar los nuevos datos
+    const newData = {
+      ...formDataWithHorario,
+      clase: {
+        nombreClase: selectedClass.nombreClase,
+        nombreProfesor: selectedClass.nombreProfesor
+      }
+    };
+  
+    // Guardar datos actualizados en localStorage
+    localStorage.setItem('formData', JSON.stringify([...existingData, newData]));
+  
+    if (typeof onFormSubmit === 'function') {
+      onFormSubmit(formDataWithHorario); // Verifica que onFormSubmit sea una función
+    } else {
+      console.error("onFormSubmit no es una función");
+    }
+    onClose();
   };
+  
 
   if (!selectedClass) return null;
 
