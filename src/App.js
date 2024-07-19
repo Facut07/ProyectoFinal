@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './Components/Header';
 import Category from './Components/Category';
-import ModalAgenda from './Components/ModalAgenda';
-import ModalPerfil from './Components/ModalPerfil';
+import Footer from './Components/Footer';
+
+
+
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,20 +40,7 @@ function App() {
     <div className="App">
       <Header />
       <Category />
-      <button onClick={handleOpenModal} className="bg-blue-500 text-white px-4 py-2 rounded">
-        Ver Agenda
-      </button>
-      <ModalAgenda 
-        isOpen={isModalOpen} 
-        onClose={handleCloseModal} 
-        onEdit={handleOpenProfileModal} 
-      />
-      <ModalPerfil
-        isOpen={isProfileModalOpen}
-        onClose={handleCloseProfileModal}
-        selectedClass={selectedClass}
-        onFormSubmit={handleFormSubmit}
-      />
+      <Footer />
     </div>
   );
 }
