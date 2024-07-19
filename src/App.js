@@ -3,9 +3,8 @@ import './App.css';
 import Header from './Components/Header';
 import Category from './Components/Category';
 import Footer from './Components/Footer';
-
-
-
+import ModalAgenda from './Components/ModalAgenda';
+import ModalPerfil from './Components/ModalPerfil';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,9 +36,28 @@ function App() {
   };
 
   return (
-    <div className="App">
+    <div className="App relative">
       <Header />
       <Category />
+      <div className="absolute top-4 right-4">
+        <button 
+          onClick={handleOpenModal} 
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Ver Agenda
+        </button>
+      </div>
+      <ModalAgenda 
+        isOpen={isModalOpen} 
+        onClose={handleCloseModal} 
+        onEdit={handleOpenProfileModal} 
+      />
+      <ModalPerfil
+        isOpen={isProfileModalOpen}
+        onClose={handleCloseProfileModal}
+        selectedClass={selectedClass}
+        onFormSubmit={handleFormSubmit}
+      />
       <Footer />
     </div>
   );
