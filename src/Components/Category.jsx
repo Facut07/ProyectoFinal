@@ -24,9 +24,9 @@ const Category = () => {
             <div key={index} className="lg:w-1/4 md:w-1/2 p-4 w-full">
               <a className="block relative h-48 rounded overflow-hidden">
                 <img
-                  alt="ecommerce"
+                  alt={clase.nombreClase}
                   className="object-cover object-center w-full h-full block"
-                  src="https://dummyimage.com/420x260"
+                  src={`/${clase.imagen}`}
                 />
               </a>
               <div className="mt-4">
@@ -40,7 +40,7 @@ const Category = () => {
                   onClick={() => openModal(clase)}
                   className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >
-                  Agregarr
+                  Agregar
                 </button>
               </div>
             </div>

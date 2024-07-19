@@ -1,15 +1,37 @@
 [
-    {
-      "nombreClase": "Matemáticas",
-      "descripcion": "Clase de matemáticas básicas",
-      "nombreProfesor": "Juan Pérez",
-      "horarios": "09:00 / 14:00"
-    },
-    {
-      "nombreClase": "Historia",
-      "descripcion": "Historia del siglo XX",
-      "nombreProfesor": "Ana Gómez",
-      "horarios": "10:00 / 15:00"
-    }
-  ]
-  
+  {
+    "imagen":"pesa.jpg",
+    "nombreClase": "Funcional",
+    "descripcion": "Entrenamiento que mejora la movilidad y la fuerza mediante ejercicios funcionales aplicables a la vida diaria.",
+    "nombreProfesor": "Juan Pérez",
+    "horarios": "09:00 / 10:00"
+  },
+  {
+    "imagen":"pesa.jpg",
+    "nombreClase": "Zumba",
+    "descripcion": "Clase dinámica que combina baile y ejercicio para una experiencia divertida y enérgica.",
+    "nombreProfesor": "Ana Gómez",
+    "horarios": "10:00 / 11:00"
+  },
+  {
+    "imagen":"pesa.jpg",
+    "nombreClase": "Crossfit",
+    "descripcion": "Entrenamiento de alta intensidad que mejora la fuerza y la resistencia física general.",
+    "nombreProfesor": "Ana Gómez",
+    "horarios": "11:00 / 12:00"
+  },
+  {
+    "imagen":"pesa.jpg",
+    "nombreClase": "Musculacion",
+    "descripcion": "Rutina enfocada en el desarrollo muscular y el aumento de fuerza.",
+    "nombreProfesor": "Juan Pérez",
+    "horarios": "16:00 / 17:00"
+  },
+  {
+    "imagen":"pesa.jpg",
+    "nombreClase": "Boxeo",
+    "descripcion": "Entrenamiento intensivo que combina técnicas de boxeo con ejercicios de acondicionamiento físico.",
+    "nombreProfesor": "Juan Pérez",
+    "horarios": "17:00 / 18:00"
+  }
+]
