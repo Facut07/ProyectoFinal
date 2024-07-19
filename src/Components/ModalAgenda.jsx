@@ -1,29 +1,19 @@
 import React, { useState, useEffect } from 'react';
 
-// Componente para mostrar la información guardada en el localStorage
-const ModalAgenda = ({ isOpen, onClose }) => {
+const ModalAgenda = ({ isOpen, onClose, onEdit }) => {
   const [classData, setClassData] = useState([]);
-  const [selectedIndex, setSelectedIndex] = useState(null);
 
   useEffect(() => {
     if (isOpen) {
-      // Obtener datos del localStorage cuando el modal esté abierto
       const storedData = JSON.parse(localStorage.getItem('formData')) || [];
       setClassData(storedData);
     }
   }, [isOpen]);
 
   const handleDelete = (index) => {
-    // Obtener datos actuales del localStorage
     const storedData = JSON.parse(localStorage.getItem('formData')) || [];
-    
-    // Filtrar la entrada que queremos eliminar
     const updatedData = storedData.filter((_, i) => i !== index);
-    
-    // Guardar los datos actualizados en localStorage
     localStorage.setItem('formData', JSON.stringify(updatedData));
-    
-    // Actualizar el estado
     setClassData(updatedData);
   };
 
@@ -50,7 +40,7 @@ const ModalAgenda = ({ isOpen, onClose }) => {
                 <div className="mt-4 flex justify-end space-x-2">
                   <button
                     className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
-                    onClick={() => setSelectedIndex(index)}
+                    onClick={() => onEdit(data)}
                   >
                     Editar mis datos
                   </button>
@@ -72,18 +62,4 @@ const ModalAgenda = ({ isOpen, onClose }) => {
   );
 };
 
-// Componente principal
-const App = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  return (
-    <div className="App">
-      <button onClick={() => setIsModalOpen(true)} className="bg-blue-500 text-white px-4 py-2 rounded">
-        Ver Agenda
-      </button>
-      <ModalAgenda isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
-    </div>
-  );
-};
-
-export default App;
+export default ModalAgenda;
