@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './Components/Header';
 import Category from './Components/Category';
+import Footer from './Components/Footer';
 
 
 
@@ -29,6 +30,7 @@ function App() {
     <div className="App">
       <Header />
       <Category />
+      <Footer />
     </div>
   );
 }
