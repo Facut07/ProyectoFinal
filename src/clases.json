@@ -1,0 +1,15 @@
+[
+    {
+      "nombreClase": "Matemáticas",
+      "descripcion": "Clase de matemáticas básicas",
+      "nombreProfesor": "Juan Pérez",
+      "horarios": "09:00 / 14:00"
+    },
+    {
+      "nombreClase": "Historia",
+      "descripcion": "Historia del siglo XX",
+      "nombreProfesor": "Ana Gómez",
+      "horarios": "10:00 / 15:00"
+    }
+  ]
+  
