@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 import Header from './Components/Header';
 import Category from './Components/Category';
-import ModalForm from './Components/ModalForm';
+
+
+
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,13 +28,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Category onOpenModal={handleOpenModal} />
-      <ModalForm
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        selectedClass={selectedClass}
-        onFormSubmit={handleFormSubmit} // Asegúrate de pasar la función correctamente
-      />
+      <Category />
     </div>
   );
 }
