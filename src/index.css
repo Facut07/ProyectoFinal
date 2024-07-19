@@ -3,3 +3,54 @@
 @tailwind components;
 @tailwind utilities;
 
+header {
+    background-color: #364552;
+    color: rgb(255, 255, 255);
+    padding: 3rem 2rem ;
+}
+
+header h1 {
+    text-align: center;
+    font-size: 4rem;
+}
+
+section article { /*Para que tengan el estilo de tarjetas*/
+    transition: box-shadow 0.3s ease; /*Para animar las tarjetas (box-shadow), con el 0.3s es el tiempo de la transicion y con ease el algoritmo para que acelere y desacelere*/
+    background-color: #fff;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    padding: 0.25rem 0;
+    cursor: pointer;
+}
+
+section article:hover {
+    box-shadow: 0 0.1rem 0.4rem rgba(0, 0, 0 ,0.4);
+}
+
+section article h2, section article p {
+    margin: 1rem;
+}
+
+footer {
+    background-color: #222;
+    padding: 3rem;
+    color: #fff;
+}
+
+
+footer section {
+    float: right;
+}
+footer p {
+    margin: 0;
+}
+
+footer a {
+    transition: color 0.3s ease; /*Transicion del color  */
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: cornflowerblue;
+}
