@@ -13,8 +13,8 @@ const Header = () => {
   };
 
   return (
-       <header id="titulo">
-        <h1>Mighty Mick's Gym</h1>
+       <header id="Header">
+        <h1>APOLLONIUS GYM</h1>
         <ModalAgenda isOpen={isModalOpen} onClose={closeModal} />
     </header>
         

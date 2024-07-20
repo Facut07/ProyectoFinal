@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ModalForm from './ModalForm'; // Asegúrate de que la ruta sea correcta según tu estructura de archivos
-import clasesData from '../clases.json'; // Asegúrate de que la ruta sea correcta según tu estructura de archivos
+import ModalForm from './ModalForm'; 
+import clasesData from '../clases.json'; 
 
 const Category = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);

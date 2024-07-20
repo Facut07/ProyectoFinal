@@ -3,10 +3,28 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color:  #efefef;
+    margin: 0;
+    padding: 0;
+}
+
 header {
-    background-color: #364552;
+    font-family: "Montserrat", sans-serif;
+    background-color: #222;
     color: rgb(255, 255, 255);
     padding: 3rem 2rem ;
+    transition: color 0.4s ease; /*Transicion del color  */
+    text-decoration:none;
+
+
+    text-align: center ; /* texto centrado(center) o izq(left) o derecha(right) (justify, agrega espacio para usar todo el ancho) */
+     /* DECORACION DE TEXTO (lunderline SUBRALLADO) (line-through TACHADO) (overline LINEA ARRIVA)*/
+    text-shadow: 3px 5px 5px rgb(63, 127, 248)
+    
+}
+header:hover {
+    color: black;
 }
 
 header h1 {
@@ -37,9 +55,20 @@ footer {
     color: #fff;
 }
 
+footer h2 {
+    font-family: "Montserrat", sans-serif;
+    transition: color 0.4s ease;
+    text-align: center;
+    font-size: 4rem;
+    transition: color 0.4s ease;
+    text-shadow: 3px 5px 5px rgb(63, 127, 248)
+}
+footer h2:hover {
+    color: black;
+}
 
 footer section {
-    float: right;
+    float:right;
 }
 footer p {
     margin: 0;
@@ -54,3 +83,4 @@ footer a {
 footer a:hover {
     color: cornflowerblue;
 }
+
