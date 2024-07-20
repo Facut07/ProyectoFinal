@@ -68,64 +68,65 @@ const ModalPerfil = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <form onSubmit={handleSubmit} className="mt-6">
+        <h2 className="text-center text-xl text-gray-800 mb-6">Editar Perfil</h2>
+        <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="nombre" className="block text-gray-700 font-bold mb-2">Nombre</label>
+            <label htmlFor="nombre" className="block text-gray-700 text-sm font-medium mb-2">Nombre</label>
             <input
               type="text"
               id="nombre"
               name="nombre"
               value={formData.nombre}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm"
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="apellido" className="block text-gray-700 font-bold mb-2">Apellido</label>
+            <label htmlFor="apellido" className="block text-gray-700 text-sm font-medium mb-2">Apellido</label>
             <input
               type="text"
               id="apellido"
               name="apellido"
               value={formData.apellido}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm"
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
+            <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-2">Email</label>
             <input
               type="email"
               id="email"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm"
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="telefono" className="block text-gray-700 font-bold mb-2">Teléfono</label>
+            <label htmlFor="telefono" className="block text-gray-700 text-sm font-medium mb-2">Teléfono</label>
             <input
               type="tel"
               id="telefono"
               name="telefono"
               value={formData.telefono}
               onChange={handleChange}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm"
               required
             />
           </div>
           <div className="mb-4">
-            <label htmlFor="horario" className="block text-gray-700 font-bold mb-2">Horario</label>
+            <label htmlFor="horario" className="block text-gray-700 text-sm font-medium mb-2">Horario</label>
             <input
               type="text"
               id="horario"
               name="horario"
               value={selectedHorario}
               onChange={(e) => setSelectedHorario(e.target.value)}
-              className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 text-sm"
               required
             />
           </div>
@@ -133,13 +134,13 @@ const ModalPerfil = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
             <button
               type="button"
               onClick={onClose}
-              className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-gray-600"
+              className="bg-transparent border border-gray-600 text-gray-600 px-4 py-2 rounded hover:bg-gray-700 hover:text-white text-sm transition-opacity duration-200 hover:opacity-80"
             >
               Cancelar
             </button>
             <button
               type="submit"
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              className="bg-transparent border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-100 hover:text-blue-700 text-sm transition-opacity duration-200 hover:opacity-80"
             >
               Guardar
             </button>

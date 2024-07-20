@@ -28,24 +28,32 @@ const ModalAgenda = ({ isOpen, onClose, onEdit }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <h2 className="text-center text-2xl font-bold text-gray-900">Agenda de Clases</h2>
+          <h2 className="text-center text-xl text-gray-800">Agenda de Clases</h2>
         </div>
         <div className="grid grid-cols-1 gap-4">
           {classData.length > 0 ? (
             classData.map((data, index) => (
-              <div key={index} className="p-4 border rounded-lg shadow">
-                <h3 className="text-lg font-bold text-gray-800">Nombre de la clase: {data.clase.nombreClase}</h3>
-                <p className="text-gray-600">Profesor: {data.clase.nombreProfesor}</p>
-                <p className="text-gray-600">Horario: {data.horario}</p>
-                <div className="mt-4 flex justify-end space-x-2">
+              <div key={index} className="p-4 border rounded-lg shadow bg-gray-50">
+                <div className="flex justify-between items-center mb-2">
+                  <div>
+                    <h3 className="text-lg font-medium text-blue-600">Clase</h3>
+                    <p className="text-gray-700">{data.clase.nombreClase}</p>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-medium text-blue-600">Profesor</h3>
+                    <p className="text-gray-700">{data.clase.nombreProfesor}</p>
+                  </div>
+                </div>
+                <p className="text-gray-600 mb-4 text-sm">Horario: {data.horario}</p>
+                <div className="flex justify-end space-x-2">
                   <button
-                    className="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600"
+                    className="bg-transparent border border-blue-600 text-blue-600 px-4 py-2 rounded hover:bg-blue-100 hover:text-blue-700 text-sm transition-opacity duration-200 hover:opacity-80"
                     onClick={() => onEdit(data)}
                   >
                     Editar mis datos
                   </button>
                   <button
-                    className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+                    className="bg-transparent border border-gray-600 text-gray-600 px-4 py-2 rounded hover:bg-gray-800 hover:text-white text-sm transition-opacity duration-200 hover:opacity-90"
                     onClick={() => handleDelete(index)}
                   >
                     Eliminar
@@ -54,7 +62,7 @@ const ModalAgenda = ({ isOpen, onClose, onEdit }) => {
               </div>
             ))
           ) : (
-            <p className="text-center text-gray-600">No hay información disponible</p>
+            <p className="text-center text-gray-600">Agrega clases!</p>
           )}
         </div>
       </div>

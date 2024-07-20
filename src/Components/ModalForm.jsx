@@ -30,10 +30,10 @@ const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const formDataWithHorario = { ...formData, horario: selectedHorario };
-  
+
     // Obtener datos actuales del localStorage
     const existingData = JSON.parse(localStorage.getItem('formData')) || [];
-  
+
     // Agregar los nuevos datos
     const newData = {
       ...formDataWithHorario,
@@ -42,10 +42,10 @@ const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
         nombreProfesor: selectedClass.nombreProfesor
       }
     };
-  
+
     // Guardar datos actualizados en localStorage
     localStorage.setItem('formData', JSON.stringify([...existingData, newData]));
-  
+
     if (typeof onFormSubmit === 'function') {
       onFormSubmit(formDataWithHorario); // Verifica que onFormSubmit sea una función
     } else {
@@ -53,7 +53,6 @@ const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
     }
     onClose();
   };
-  
 
   if (!selectedClass) return null;
 
@@ -66,17 +65,25 @@ const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          <h2 className="text-center text-2xl font-bold text-gray-900">Detalles de la clase</h2>
+          <h2 className="text-center text-xl text-gray-800">Detalles de la clase</h2>
+        </div>
+        <div className="flex justify-between items-center mb-4 px-4 py-2 bg-gray-100 rounded-lg">
+          <div className="flex flex-col items-start">
+            <span className="text-lg font-medium text-blue-600">Clase</span>
+            <span className="text-gray-700">{selectedClass.nombreClase}</span>
+          </div>
+          <div className="flex flex-col items-end">
+            <span className="text-lg font-medium text-blue-600">Profesor</span>
+            <span className="text-gray-700">{selectedClass.nombreProfesor}</span>
+          </div>
         </div>
         <div className="relative mb-4">
-          <p className="text-center text-lg font-bold text-gray-900">Nombre de la clase: {selectedClass.nombreClase}</p>
-          <p className="text-center text-lg font-bold text-gray-900">Profesor: {selectedClass.nombreProfesor}</p>
-          <label htmlFor="horario" className="block text-gray-700 font-bold mb-2">Selecciona el horario</label>
+          <label htmlFor="horario" className="block text-gray-700 mb-2 text-sm">Selecciona el horario</label>
           <select
             id="horario"
             value={selectedHorario}
             onChange={handleHorarioChange}
-            className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-sm"
           >
             {selectedClass.horarios.split(' / ').map((horario, index) => (
               <option key={index} value={horario}>
@@ -87,23 +94,55 @@ const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
         </div>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="nombre" className="block text-gray-700 font-bold mb-2">Nombre</label>
-            <input type="text" id="nombre" name="nombre" value={formData.nombre} onChange={handleChange} className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required />
+            <label htmlFor="nombre" className="block text-gray-700 mb-2 text-sm">Nombre</label>
+            <input
+              type="text"
+              id="nombre"
+              name="nombre"
+              value={formData.nombre}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-gray-700 text-sm"
+              required
+            />
           </div>
           <div className="mb-4">
-            <label htmlFor="apellido" className="block text-gray-700 font-bold mb-2">Apellido</label>
-            <input type="text" id="apellido" name="apellido" value={formData.apellido} onChange={handleChange} className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required />
+            <label htmlFor="apellido" className="block text-gray-700 mb-2 text-sm">Apellido</label>
+            <input
+              type="text"
+              id="apellido"
+              name="apellido"
+              value={formData.apellido}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-gray-700 text-sm"
+              required
+            />
           </div>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
-            <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required />
+            <label htmlFor="email" className="block text-gray-700 mb-2 text-sm">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-gray-700 text-sm"
+              required
+            />
           </div>
           <div className="mb-4">
-            <label htmlFor="telefono" className="block text-gray-700 font-bold mb-2">Teléfono</label>
-            <input type="tel" id="telefono" name="telefono" value={formData.telefono} onChange={handleChange} className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-blue-500" required />
+            <label htmlFor="telefono" className="block text-gray-700 mb-2 text-sm">Teléfono</label>
+            <input
+              type="tel"
+              id="telefono"
+              name="telefono"
+              value={formData.telefono}
+              onChange={handleChange}
+              className="w-full px-3 py-2 border-b-2 border-gray-300 focus:outline-none focus:border-blue-500 text-gray-700 text-sm"
+              required
+            />
           </div>
           <div className="flex justify-center">
-            <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+            <button type="submit" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
               Enviar
             </button>
           </div>
