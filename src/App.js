@@ -5,6 +5,7 @@ import Category from './Components/Category';
 import Footer from './Components/Footer';
 import ModalAgenda from './Components/ModalAgenda';
 import ModalPerfil from './Components/ModalPerfil';
+import Carousel from './Components/Carousel';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -36,8 +37,10 @@ function App() {
   };
 
   return (
+    
     <div className="App relative">
       <Header />
+      <Carousel />
       <Category />
       <div className="absolute top-4 right-4">
         <button 

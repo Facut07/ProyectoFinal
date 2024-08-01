@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'; // modal eliminar
 
 const ModalConfirmacion = ({ isOpen, onClose, onConfirm }) => {
   if (!isOpen) return null;

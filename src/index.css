@@ -3,11 +3,27 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
     background-color:  #efefef;
     margin: 0;
     padding: 0;
 }
+
+#Header {
+    display: flex;
+    align-items: center;
+}
+  
+#Header img {
+    height: 150px; 
+    margin-right: 220px;
+}
+  
+#Header h1 {
+    margin: 0;
+}
+  
 
 header {
     font-family: "Montserrat", sans-serif;
@@ -16,8 +32,6 @@ header {
     padding: 3rem 2rem ;
     transition: color 0.4s ease; /*Transicion del color  */
     text-decoration:none;
-
-
     text-align: center ; /* texto centrado(center) o izq(left) o derecha(right) (justify, agrega espacio para usar todo el ancho) */
      /* DECORACION DE TEXTO (lunderline SUBRALLADO) (line-through TACHADO) (overline LINEA ARRIVA)*/
     text-shadow: 3px 5px 5px rgb(63, 127, 248)
@@ -49,13 +63,20 @@ section article h2, section article p {
     margin: 1rem;
 }
 
+footer img {
+    height: 150px; 
+    margin-right: 200px;
+}
+
 footer {
+    display:flex;
+    align-items:center;
     background-color: #222;
     padding: 3rem;
     color: #fff;
 }
 
-footer h2 {
+footer h1 {
     font-family: "Montserrat", sans-serif;
     transition: color 0.4s ease;
     text-align: center;
@@ -63,7 +84,7 @@ footer h2 {
     transition: color 0.4s ease;
     text-shadow: 3px 5px 5px rgb(63, 127, 248)
 }
-footer h2:hover {
+footer h1:hover {
     color: black;
 }
 
@@ -71,7 +92,8 @@ footer section {
     float:right;
 }
 footer p {
-    margin: 0;
+    display:contents;
+    
 }
 
 footer a {
@@ -82,5 +104,9 @@ footer a {
 
 footer a:hover {
     color: cornflowerblue;
+}
+.copyri{
+    position: absolute;
+    bottom: 9px;
 }
 

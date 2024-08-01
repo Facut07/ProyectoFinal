@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // moda leditar el perfil
 
 const ModalPerfil = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
   const [formData, setFormData] = useState({

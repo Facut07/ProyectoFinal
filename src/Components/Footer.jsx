@@ -12,20 +12,18 @@ const Footer = () => {
   };
 
   return (
-    <footer>
-     
-        <h2>APOLLONIUS GYM</h2>
-        
+    <footer> 
+        <img src="logo apollonius.png" alt="Apollonius Gym Logo"  />
+        <h1>APOLLONIUS GYM</h1> 
         <br />
-        
-        <p>Copyright 2024</p>
-
-        <section>
+        <section class="ml-40">
           <a href="#Header"> Ir al comienzo.</a>
           <br />
           <a href="mailto:fctaapia11@gmail.com">Contactame aqui.</a>
         </section>
-
+        <div className='copyri'>
+        <p>Copyright 2024</p>
+        </div>
     </footer>
   );
 };

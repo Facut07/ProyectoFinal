@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'; // modal agregar clase
 
 const ModalForm = ({ isOpen, onClose, selectedClass, onFormSubmit }) => {
   const [formData, setFormData] = useState({

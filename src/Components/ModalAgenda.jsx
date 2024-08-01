@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ModalConfirmacion from './ModalConfirmacion'; // Asegúrate de importar el nuevo componente
+import ModalConfirmacion from './ModalConfirmacion'; // modal donde se ven las clases agregadas
 
 const ModalAgenda = ({ isOpen, onClose, onEdit }) => {
   const [classData, setClassData] = useState([]);

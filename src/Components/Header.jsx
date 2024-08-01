@@ -14,12 +14,13 @@ const Header = () => {
 
   return (
        <header id="Header">
+         <img src="logo apollonius.png" alt="Apollonius Gym Logo"  />
         <h1>APOLLONIUS GYM</h1>
         <ModalAgenda isOpen={isModalOpen} onClose={closeModal} />
     </header>
         
         
-        
+
         
 
   );
